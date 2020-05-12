@@ -1,0 +1,11 @@
+<%= form_for(@comment) do |form| %>
+  <div class="field">
+    <%= form.rich_text_area :body %>
+
+    <%= form.hidden_field :post_id, value: @post.id %>
+
+    <div class="comment_submit">
+      <%= form.submit "Submit", class: "btn submit" %>
+    </div>
+  </div>
+<% end %>

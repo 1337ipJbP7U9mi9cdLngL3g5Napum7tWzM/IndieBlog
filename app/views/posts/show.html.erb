@@ -1,3 +1,6 @@
+<%= stylesheet_pack_tag 'post', 'trix' %>
+<%= javascript_pack_tag 'post', 'trix' %>
+
 <%= @post.id %>
 <br />
 <%= @post.title %>
@@ -7,3 +10,19 @@
 <%= @post.image %>
 <br />
 <%= @post.slug%>
+
+
+
+<center><h5>Tell Us Your Thoughts!</h5></center>
+
+<%= render 'comments/form' %>
+
+  <% if @comments %>
+    <div class="comments">
+      <% @comments.each do |comment| %>
+        <div class="comment">
+          <%= comment.body %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
