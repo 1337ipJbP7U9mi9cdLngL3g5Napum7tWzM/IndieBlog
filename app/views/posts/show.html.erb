@@ -1,15 +1,17 @@
 <%= stylesheet_pack_tag 'post', 'trix' %>
 <%= javascript_pack_tag 'post', 'trix' %>
 
-<%= @post.id %>
-<br />
-<%= @post.title %>
-<br />
-<%= @post.body %>
-<br />
-<%= @post.image %>
-<br />
-<%= @post.slug%>
+<div class="show">
+  <%= @post.id %>
+  <br />
+  <%= @post.title %>
+  <br />
+  <%= @post.body %>
+  <br />
+  <%= @post.image %>
+  <br />
+  <%= @post.slug%>
+</div>
 
 
 

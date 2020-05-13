@@ -20,5 +20,5 @@ import "controllers"
 
 require("@rails/actiontext")
 
-// import '../css/application.scss';
+import '../css/application.scss';
 // import 'trix.js';
