@@ -2,15 +2,16 @@
 <%= javascript_pack_tag 'post', 'trix' %>
 
 <div class="show">
-  <%= @post.id %>
-  <br />
-  <%= @post.title %>
-  <br />
-  <%= @post.body %>
-  <br />
-  <%= @post.image %>
-  <br />
-  <%= @post.slug%>
+  <div class="title">
+    <h1><%= @post.title %><h1>
+  </div>
+  <div>
+    <img class="image" src="<%= asset_pack_path 'media/images/' + @post.image %>">
+  </div>
+  <div class="body">
+    <%= @post.body %>
+  </div>
+
 </div>
 
 

@@ -4,18 +4,13 @@
 <div class="index">
   <h2 class="post_header">Posts</h2>
   <div class="index__posts">
-    
+
     <% @posts.each do |post| %>
       <h2><%= post.title %></h2>
       <p>
-        <%= post.body %>
+        <%= post.short_description %>
       </p>
-      <p>
-        <%= post.image %>
-      </p>
-      <p>
-        <%= post.slug %>
-      </p>
+      <%= button_to "Continue Reading", post_path(post), method: :get %>
     <% end %>
   </div>
 <div>
