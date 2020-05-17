@@ -13,4 +13,5 @@
       <%= button_to "Continue Reading", post_path(post), method: :get %>
     <% end %>
   </div>
+  <%= will_paginate @posts, class: "digg_pagination", param_name: :page %>
 <div>
