@@ -22,4 +22,5 @@ require("@rails/actiontext")
 
 import '../css/application.scss';
 import 'css/about_me';
+import 'css/contact';
 // import 'trix.js';
