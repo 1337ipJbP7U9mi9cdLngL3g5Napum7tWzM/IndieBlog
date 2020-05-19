@@ -8,6 +8,8 @@ class PostsController < ApplicationController
     @post = Post.friendly.find(params[:id])
     @comments = Comment.where(post_id: @post)
     @comment = Comment.new
+    @title = @post.title
+    @image = @post.image
   end
 
   def new

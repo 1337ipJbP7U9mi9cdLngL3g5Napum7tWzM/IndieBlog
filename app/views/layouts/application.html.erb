@@ -1,13 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IndieBlog</title>
+    <title><%= (@title + " - AnIndieHackerJourney" if @title) || "AnIndieHackerJourney"  %> </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+
+    <% if @title %>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "<%= @title %>",
+          "author": "An Indie Hacker",
+          "image": "http://www.anindiehackerjourney.com<%= asset_pack_path 'media/images/' + @image %>",
+          "genre": "digital business",
+          "datePublished": "<%= @publication_date %>",
+          "dateModified": "<%= @date_modified %>",
+          "publisher": {
+            "@type": "Organization",
+            "name": "An Indie Hacker Journey",
+          },
+          "url": "<%= @twitterURL %>",
+          "description": "<%= @twitterDescription %>"
+        }
+      </script>
+      <meta name="description" content="<%= @twitterDescription %>">
+    <% else %>
+      <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "WebPage",
+          "name": "Felines Fancy",
+          "description": "All about domestic cats, cat breed profiles, and articles about taking care of your cat"
+        }
+      </script>
+      <meta name="description" content="All about domestic cats, cat breed profiles, and articles about taking care of your cat">
+    <% end %>
+
+
+
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebPage",
+        "name": "An Indie Hacker Journey",
+        "description": "All about the indie hacker life, including coding, business issues, SEO, digital nomad life, and more"
+      }
+    </script>
+    <meta name="description" content="All about the indie hacker life, including coding, business issues, SEO, digital nomad life, and more">
 
   </head>
 
