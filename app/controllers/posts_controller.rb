@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :admin, only: [:edit, :update, :new, :create]
 
   def index
     @posts = Post.paginate(page: params[:page], per_page: 2 ).order('created_at ASC')
@@ -36,6 +37,13 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :short_description, :image, :slug)
+  end
+
+  def admin
+    unless current_user && current_user.admin?
+      flash[:danger] = "How dare you use your guile tactics on us!"
+      redirect_to '/posts'
+    end
   end
 
 

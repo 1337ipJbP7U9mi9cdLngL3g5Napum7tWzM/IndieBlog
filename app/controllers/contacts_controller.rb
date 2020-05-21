@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  before_action :admin, only: [:destroy, :destroy_all]
 
   def index
     @contacts = Contact.all.order('created_at DESC')
@@ -31,6 +32,13 @@ class ContactsController < ApplicationController
 
   def contact_params
     params.require(:contact).permit(:email, :body)
+  end
+
+  def admin
+    unless current_user && current_user.admin?
+      flash[:danger] = "How dare you use your guile tactics on us!"
+      redirect_to root_path
+    end
   end
 
 end

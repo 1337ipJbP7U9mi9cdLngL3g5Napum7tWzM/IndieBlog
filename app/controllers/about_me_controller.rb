@@ -2,7 +2,7 @@ class AboutMeController < ApplicationController
 
   def index
     @title = "About Me"
-    @image =
+    @image = ""
   end
 
 end

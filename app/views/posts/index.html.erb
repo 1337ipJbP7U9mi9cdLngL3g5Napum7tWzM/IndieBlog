@@ -10,7 +10,10 @@
       <p>
         <%= post.short_description %>
       </p>
-      <%= button_to "Continue Reading", post_path(post), method: :get %>
+      <%= link_to post_path(post) do %>
+        <button type="button" name="button">Continue Reading</button>
+      <% end %>
+      <%# button_to "Continue Reading", post_path(post), method: :get %>
     <% end %>
   </div>
   <%= will_paginate @posts, class: "digg_pagination", param_name: :page %>
