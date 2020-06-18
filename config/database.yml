@@ -86,4 +86,5 @@ production:
   <<: *default
   database: IndieBlog_production
   username: IndieBlog
-  password: <%= ENV['INDIEBLOG_DATABASE_PASSWORD'] %>
+  host: 127.0.0.1
+  password: <%= Rails.application.credentials[:postgresql_password] %>
