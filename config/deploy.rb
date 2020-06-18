@@ -1,7 +1,7 @@
 require File.expand_path("./environment", __dir__)
 
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.12.0"
+lock "~> 3.14.0"
 
 set :application, "IndieHackerJourney"
 set :repo_url, "git@github.com:1337ipJbP7U9mi9cdLngL3g5Napum7tWzM/IndieBlog.git"
@@ -85,6 +85,7 @@ namespace :deploy do
   end
 
   # after :finishing, 'assets:precompile'
+  before 'deploy', 'rvm1:install:gems'
 
   # before :starting,     :check_revision
   # after 'deploy:updated', 'assets:precompile'
@@ -99,6 +100,3 @@ end
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
 # kill -s SIGTERM pid   # Stop puma
-
-
-https://github.com/seuros/capistrano-puma
