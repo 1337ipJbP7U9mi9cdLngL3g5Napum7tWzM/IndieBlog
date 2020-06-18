@@ -3,6 +3,7 @@ require File.expand_path("./environment", __dir__)
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.14.0"
 
+set :rvm1_ruby_version, "2.6.4"
 set :application, "IndieHackerJourney"
 set :repo_url, "git@github.com:1337ipJbP7U9mi9cdLngL3g5Napum7tWzM/IndieBlog.git"
 set :rails_assets_groups, :web

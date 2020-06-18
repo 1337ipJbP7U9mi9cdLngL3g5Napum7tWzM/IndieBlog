@@ -84,7 +84,7 @@ test:
 #
 production:
   <<: *default
-  database: IndieBlog_production
-  username: IndieBlog
+  database: indieblog_production
+  username: indieblog
   host: 127.0.0.1
   password: <%= Rails.application.credentials[:postgresql_password] %>
