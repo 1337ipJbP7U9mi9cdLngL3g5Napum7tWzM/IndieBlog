@@ -3,8 +3,8 @@ require File.expand_path("./environment", __dir__)
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.12.0"
 
-set :application, "IndieBlog"
-set :repo_url, "git@github.com:ekr990011/cats.git"
+set :application, "IndieHackerJourney"
+set :repo_url, "git@github.com:1337ipJbP7U9mi9cdLngL3g5Napum7tWzM/IndieBlog.git"
 set :rails_assets_groups, :web
 set :keep_releases, 2
 
@@ -29,9 +29,9 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to true if using ActiveRecord
 
 set :nginx_use_ssl, true
-set :nginx_server_name, "felinesfancy.com www.felinesfancy.com"
-set :nginx_ssl_certificate, "/etc/letsencrypt/live/felinesfancy.com/fullchain.pem"
-set :nginx_ssl_certificate_key, "/etc/letsencrypt/live/felinesfancy.com/privkey.pem"
+set :nginx_server_name, "indiehackerjourney.com www.indiehackerjourney.com"
+set :nginx_ssl_certificate, "/etc/letsencrypt/live/indiehackerjourney.com/fullchain.pem"
+set :nginx_ssl_certificate_key, "/etc/letsencrypt/live/indiehackerjourney.com/privkey.pem"
 
 
 # If you only want to upload files or dirs, then run the tasks accordingly:
@@ -44,17 +44,17 @@ set :linked_files, fetch(:linked_files, []).push("config/master.key")
 set :linked_dirs,  %w{bin tmp/pids tmp/cache tmp/sockets public} #maybe ./bundle? .bundle
 
 
-namespace :puma do
-  desc 'Create Directories for Puma Pids and Socket'
-  task :make_dirs do
-    on roles(:app) do
-      execute "mkdir #{shared_path}/tmp/sockets -p"
-      execute "mkdir #{shared_path}/tmp/pids -p"
-    end
-  end
-
-  before :start, :make_dirs
-end
+# namespace :puma do
+#   desc 'Create Directories for Puma Pids and Socket'
+#   task :make_dirs do
+#     on roles(:app) do
+#       execute "mkdir #{shared_path}/tmp/sockets -p"
+#       execute "mkdir #{shared_path}/tmp/pids -p"
+#     end
+#   end
+#
+#   before :start, :make_dirs
+# end
 
 # Setting up psql on server:
 # sudo -u postgres psql
@@ -79,7 +79,7 @@ namespace :deploy do
       # before 'deploy:restart', 'puma:start'
       before 'deploy:check:linked_files', 'linked_files:upload'
       before 'deploy:check:linked_files', 'puma:config'
-      before 'deploy:check:linked_files', 'puma:nginx_config'
+      # before 'deploy:check:linked_files', 'puma:nginx_config'
       invoke 'deploy'
     end
   end
