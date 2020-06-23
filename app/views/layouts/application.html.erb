@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= (@title + " - AnIndieHackerJourney" if @title) || "AnIndieHackerJourney"  %> </title>
+    <title><%= (@title + " - IndieHackerJourney" if @title) || "IndieHackerJourney"  %> </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,7 +16,9 @@
           "@type": "Article",
           "headline": "<%= @title %>",
           "author": "An Indie Hacker",
-          "image": "http://www.anindiehackerjourney.com<%= asset_pack_path 'media/images/' + @image %>",
+          <% if @image %>
+          "image": "https://www.indiehackerjourney.com<%= asset_pack_path 'media/images/' + @image %>",
+          <% end %>
           "genre": "digital business",
           "datePublished": "<%= @publication_date %>",
           "dateModified": "<%= @date_modified %>",
