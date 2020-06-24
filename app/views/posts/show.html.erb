@@ -5,27 +5,28 @@
   <div class="title">
     <h1><%= @post.title %><h1>
   </div>
-  <div>
-    <img class="image" src="<%= asset_pack_path 'media/images/' + @post.image %>">
+  <div style="text-align:center;">
+    <% if @post.image != "" %>
+      <img class="image" src="<%= asset_pack_path 'media/images/' + @post.image %>">
+    <% end %>
   </div>
   <div class="body">
     <%= @post.body %>
   </div>
-
 </div>
 
 
 
-<center><h5>Tell Us Your Thoughts!</h5></center>
+<center><h5>Tell Me Your Thoughts!</h5></center>
 
 <%= render 'comments/form' %>
 
-  <% if @comments %>
-    <div class="comments">
-      <% @comments.each do |comment| %>
-        <div class="comment">
-          <%= comment.body %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+<% if @comments %>
+  <div class="comments">
+    <% @comments.each do |comment| %>
+      <div class="comment">
+        <%= comment.body %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

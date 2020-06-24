@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :admin, only: [:edit, :update, :new, :create]
+  before_action :no_analytics, only: [:edit, :new]
 
   def index
     @posts = Post.paginate(page: params[:page], per_page: 2 ).order('created_at ASC')
@@ -44,6 +45,10 @@ class PostsController < ApplicationController
       flash[:danger] = "How dare you use your guile tactics on us!"
       redirect_to '/posts'
     end
+  end
+
+  def no_analytics
+    @no_analytics = true
   end
 
 
