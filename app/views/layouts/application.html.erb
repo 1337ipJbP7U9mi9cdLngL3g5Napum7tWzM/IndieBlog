@@ -16,7 +16,7 @@
           "@type": "Article",
           "headline": "<%= @title %>",
           "author": "An Indie Hacker",
-          <% if @image %>
+          <% if @image != ""%>
           "image": "https://www.indiehackerjourney.com<%= asset_pack_path 'media/images/' + @image %>",
           <% end %>
           "genre": "digital business",
@@ -43,15 +43,18 @@
       <meta name="description" content="All about the indie hacker life, including coding, business issues, SEO, digital nomad life, and more">
     <% end %>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138906419-5"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'UA-138906419-5');
-    </script>
+    <% unless @no_analytics %>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138906419-5"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-138906419-5');
+      </script>
+    <% end %>
 
   </head>
 

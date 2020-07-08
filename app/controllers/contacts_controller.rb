@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   before_action :admin, only: [:destroy, :destroy_all]
+  before_action :no_analytics
 
   def index
     @contacts = Contact.all.order('created_at DESC')
@@ -29,6 +30,10 @@ class ContactsController < ApplicationController
 
 
   private
+
+  def no_analytics
+    @no_analytics = true
+  end
 
   def contact_params
     params.require(:contact).permit(:email, :body)
