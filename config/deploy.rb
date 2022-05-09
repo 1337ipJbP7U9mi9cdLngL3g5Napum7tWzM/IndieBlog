@@ -86,7 +86,8 @@ namespace :deploy do
   end
 
   # after :finishing, 'assets:precompile'
-  before 'deploy', 'rvm1:install:gems'
+  # before 'deploy', 'rvm1:install:gems'
+  # before 'deploy', 'bundle:custom'
 
   # before :starting,     :check_revision
   # after 'deploy:updated', 'assets:precompile'

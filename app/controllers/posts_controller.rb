@@ -12,6 +12,8 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @title = @post.title
     @image = @post.image
+    @url = "https://www.indiehackerjourney.com/posts/#{@post.slug}"
+    @shortDescription = @post.short_description
   end
 
   def new
