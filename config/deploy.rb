@@ -1,7 +1,7 @@
 require File.expand_path("./environment", __dir__)
 
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.14.0"
+lock "~> 3.17.0"
 
 set :rvm1_ruby_version, "2.6.4"
 set :application, "IndieHackerJourney"
