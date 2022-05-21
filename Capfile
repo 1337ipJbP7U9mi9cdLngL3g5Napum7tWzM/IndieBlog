@@ -66,7 +66,7 @@ require 'capistrano/puma'
 install_plugin Capistrano::Puma
 # if you want to upload a nginx site template
 install_plugin Capistrano::Puma::Nginx
-
+install_plugin Capistrano::Puma::Systemd  # if you use SystemD
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
